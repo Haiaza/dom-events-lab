@@ -1,7 +1,10 @@
 /*-------------------------------- Constants --------------------------------*/
 const buttons = document.querySelectorAll('.button')
 const display = document.querySelector('.display')
-const operator = document.querySelectorAll('.operator')
+const operators  = document.querySelectorAll('.operator')
+
+const calculator = document.querySelector('#calculator');
+
 
 /*-------------------------------- Variables --------------------------------*/
 buttons.forEach((button) => {
@@ -15,9 +18,34 @@ buttons.forEach((button) => {
 /*------------------------ Cached Element References ------------------------*/
 
 /*----------------------------- Event Listeners -----------------------------*/
+calculator.addEventListener('click', (event) => {
+  // This log is for testing purposes to verify we're getting the correct value
+  // You have to click a button to see this log
+  console.log(event.target.innerText);
 
+  // Example
+  if (event.target.classList.contains('number')) {
+    // Do something with a number
+    let num1;
+    num1  = event.target.innerText
+    console.log(num1)
+  }
+
+  // Example
+  if (event.target.innerText === '*') {
+    // Do something with this operator
+    operator = '*'
+  }
+});
+console.log(operator)
 /*-------------------------------- Functions --------------------------------*/
+function calculation(num1,num2) {
+  if (num1 == null) {
+    console.log('please click a number');
+  }else {
 
+  }
+}
 
 // im thinking the function should take 3 args (input1, operator, input2)
 // or maybe the function callback will just incorporate all three with special logic for the operator
