@@ -5,6 +5,9 @@ const operators  = document.querySelectorAll('.operator')
 
 const calculator = document.querySelector('#calculator');
 
+let firstNumber = null;
+let secondNumber = null;
+let chosenOperator = null;
 
 /*-------------------------------- Variables --------------------------------*/
 buttons.forEach((button) => {
@@ -12,6 +15,7 @@ buttons.forEach((button) => {
       // This log is for testing purposes to verify we're getting the correct value
       console.log(event.target.innerText);
       // Future logic to capture the button's value would go here...
+      const value
     });
   });
   
