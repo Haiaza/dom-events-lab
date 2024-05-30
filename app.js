@@ -22,18 +22,24 @@ const updateResult = () => {
 
 const updateNumber = (event) => {
   console.log(event.target.textContent)
-
-  if(!num1){
-    num1 = event.target.textContent
-  }else{
-    num1 += event.target.textContent
+  if(operator === undefined ){
+    if(!num1){
+      num1 = event.target.textContent;
+    } else {
+      num1 += event.target.textContent
+    }
+  } else if(!num2) {
+    num2 = event.target.textContent;
+  } else {
+    num2 += event.target.textContent
   }
-  // display.textContent = event.target.textContent  this will go into the render function most likely
+  
   updateResult()
 }
 
 const selectOperator = (event) => {
-  console.log(event.target.textContent)
+  // console.log(event.target.textContent)
+  operator = event.target.textContent
 }
 
 //event handlers
