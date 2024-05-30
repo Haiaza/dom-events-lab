@@ -10,16 +10,18 @@ const display = document.querySelector('.display')
 
 
 const render = () => {
-  display.textContent = result
+  display.textContent = num1
+  // this change correlates with the updateResult func to assign the display content
 }
 
 //functions
 
 const calculate = () => {
   if (num1 && num2 && operator) {
-    let n1 = Number(num1);
-    let n2 = Number(num2);
-  }
+    const n1 = Number(num1);
+    const n2 = Number(num2);
+// im not sure if the const makes any difference versus let , but ill keep it this way
+// the error was occuring because the variables referenced were scoped out
     switch (operator) {
       case '+':
         result = n1 + n2;
@@ -34,6 +36,7 @@ const calculate = () => {
         result = n1 / n2;
         break;
     }
+  }
     // this saves me a bunch of if statements
 
 num1 = result.toString()
@@ -84,3 +87,13 @@ operatorBtnEls.forEach((operatorBtnEl) =>{
 equalBtnEl.addEventListener('click', calculate)
 
 render()
+
+/*
+As a user, I want to be able to select numbers so that I can perform operations with them. Check!
+As a user, I want to be able to add two numbers together. Check!
+As a user, I want to be able to subtract one number from another. Check!
+As a user, I want to be able to multiply two numbers together. Check!
+As a user, I want to be able to divide one number by another. Check!
+As a user, I want to be able to see the output of the mathematical operation. Check!
+As a user, I want to be able to clear all operations and start from 0.
+*/
