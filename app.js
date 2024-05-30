@@ -15,13 +15,28 @@ const render = () => {
 
 //functions
 
+const calculate = () => {
+  if (num1 && operator && num2) {
+    let n1 = Number(num1);
+    let n2 = Number(num2);
+
+    if (operator === '+') {
+      result = n1 + n2
+    } else {
+      
+    }
+  }
+}
+
+
 const updateResult = () => {
-  result = num1
+  result = (num1) //this needs to be
   render()
 }
 
-const updateNumber = (event) => {
-  console.log(event.target.textContent)
+// i see why this was plural now 
+const updateNumbers = (event) => {
+  // console.log(event.target.textContent)
   if(operator === undefined ){
     if(!num1){
       num1 = event.target.textContent;
@@ -33,6 +48,8 @@ const updateNumber = (event) => {
   } else {
     num2 += event.target.textContent
   }
+
+  console.log(`num1: ${num1}, operator: ${operator}, num2: ${num2}`)
   
   updateResult()
 }
@@ -44,7 +61,7 @@ const selectOperator = (event) => {
 
 //event handlers
 numberBtnEls.forEach((numberBtnEl) =>{
-  numberBtnEl.addEventListener('click', updateNumber)
+  numberBtnEl.addEventListener('click', updateNumbers)
 })
 
 operatorBtnEls.forEach((operatorBtnEl) =>{
