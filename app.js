@@ -16,21 +16,34 @@ const render = () => {
 //functions
 
 const calculate = () => {
-  if (num1 && operator && num2) {
+  if (num1 && num2 && operator) {
     let n1 = Number(num1);
     let n2 = Number(num2);
-
-    if (operator === '+') {
-      result = n1 + n2
-    } else {
-      
-    }
   }
-}
+    switch (operator) {
+      case '+':
+        result = n1 + n2;
+        break;
+      case '-':
+        result = n1 - n2;
+        break;
+      case '*':
+        result = n1 * n2;
+        break;
+      case '/':
+        result = n1 / n2;
+        break;
+    }
+    // this saves me a bunch of if statements
+
+num1 = result.toString()
+// converting the numberVersion of num1 and num2 back into a string for the display
+render()
+  }
 
 
 const updateResult = () => {
-  result = (num1) //this needs to be
+  result = num1 
   render()
 }
 
@@ -67,5 +80,7 @@ numberBtnEls.forEach((numberBtnEl) =>{
 operatorBtnEls.forEach((operatorBtnEl) =>{
   operatorBtnEl.addEventListener('click', selectOperator)
 })
+
+equalBtnEl.addEventListener('click', calculate)
 
 render()
