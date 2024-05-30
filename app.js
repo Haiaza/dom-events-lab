@@ -3,11 +3,11 @@ let num2;
 let operator;
 let result = 0;
 
+const btnEls = document.querySelectorAll('.button')
 const numberBtnEls = document.querySelectorAll('.number')
 const operatorBtnEls = document.querySelectorAll('.operator')
 const equalBtnEl = document.querySelector('.equals')
 const display = document.querySelector('.display')
-
 
 const render = () => {
   display.textContent = num1
@@ -15,6 +15,16 @@ const render = () => {
 }
 
 //functions
+
+const clear = () => {
+  if (btnEl.innerHTML === 'C') {
+    let num1;
+    let num2;
+    let operator;
+    let result = 0;
+    render()
+  }
+}
 
 const calculate = () => {
   if (num1 && num2 && operator) {
@@ -65,7 +75,7 @@ const updateNumbers = (event) => {
     num2 += event.target.textContent
   }
 
-  console.log(`num1: ${num1}, operator: ${operator}, num2: ${num2}`)
+  console.log(` ${num1}  ${operator}  ${num2}`)
   
   updateResult()
 }
@@ -86,6 +96,11 @@ operatorBtnEls.forEach((operatorBtnEl) =>{
 
 equalBtnEl.addEventListener('click', calculate)
 
+
+
+btnEls.forEach((btnEl) => {
+  btnEl.addEventListener('click', clear)
+})
 render()
 
 /*
